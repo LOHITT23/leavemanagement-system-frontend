@@ -45,7 +45,7 @@ const UserManagementPage: React.FC = () => {
     try {
       if (editing) {
         const { password, ...rest } = form;
-        await api.put(`/users/${editing.id}`, rest);
+        await api.put(`/users/${editing._id}`, rest);
       } else {
         await api.post('/users', form);
       }
@@ -91,7 +91,7 @@ const UserManagementPage: React.FC = () => {
               <thead><tr><th>Name</th><th>Email</th><th>Department</th><th>Role</th><th>Status</th><th>Actions</th></tr></thead>
               <tbody>
                 {users.map(u => (
-                  <tr key={u.id}>
+                  <tr key={u._id}>
                     <td><div style={{ fontWeight: 500 }}>{u.firstName}</div><div style={{ fontSize: '.8rem', color: 'var(--gray-500)' }}>{u.employeeId}</div></td>
                     <td style={{ fontSize: '.875rem' }}>{u.email}</td>
                     <td>{u.department}</td>
@@ -100,7 +100,7 @@ const UserManagementPage: React.FC = () => {
                     <td>
                       <div style={{ display: 'flex', gap: '6px' }}>
                         <button className="btn btn-sm btn-outline" onClick={() => openEdit(u)}>Edit</button>
-                        {u.isActive && <button className="btn btn-sm btn-danger" onClick={() => handleDeactivate(u.id)}>Deactivate</button>}
+                        {u.isActive && <button className="btn btn-sm btn-danger" onClick={() => handleDeactivate(u._id)}>Deactivate</button>}
                       </div>
                     </td>
                   </tr>

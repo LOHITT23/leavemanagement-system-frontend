@@ -13,7 +13,6 @@ API.interceptors.response.use(
   (res) => res,
   (err) => {
     // Auto-logout on 401 — clears storage and redirects to login
-    const message = err.response?.data?.message || 'Something went wrong';
     const status = err.response?.status;
 
     // Avoid redirect loop if no token exists (e.g. already on login page)
