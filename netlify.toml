@@ -1,0 +1,9 @@
+[build]
+  command = "tsc -b && vite build"
+  publish = "dist"
+
+# SPA fallback — sends all non-file routes to index.html for React Router
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
