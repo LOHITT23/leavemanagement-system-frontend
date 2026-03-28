@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 // Axios instance with base URL — all API calls go through this
-const API = axios.create({ baseURL: import.meta.env.VITE_API_URL });
+const API = axios.create({ baseURL: import.meta.env.VITE_APP_URL });
 // Attach JWT token from localStorage to every outgoing request
 API.interceptors.request.use((config) => {
   const token = localStorage.getItem('token');
